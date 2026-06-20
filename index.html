@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>بودرة السدر</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <section class="hero">
+    <h1>بودرة السدر 🌿</h1>
+    <p>منتج طبيعي للعناية بالشعر والبشرة</p>
+    <h2>2300 دج</h2>
+  </section>
+
+  <section class="form-section">
+
+    <h3>اطلبي الآن</h3>
+
+    <form id="orderForm">
+
+      <input type="text" id="name" placeholder="الاسم" required>
+      <input type="text" id="lastname" placeholder="اللقب" required>
+      <input type="text" id="phone" placeholder="رقم الهاتف" required>
+      <select id="wilaya" onchange="updateCommunes()" required>
+  <option value="">اختر الولاية</option>
+</select>
+
+<select id="commune" required>
+  <option value="">اختر البلدية</option>
+</select>
+
+      <select id="delivery">
+        <option value="توصيل إلى المنزل">توصيل إلى المنزل</option>
+        <option value="نقطة تسليم">نقطة تسليم</option>
+      </select>
+
+      <button type="submit">احصلي عليه الآن</button>
+
+    </form>
+
+  </section>
+
+<script src="algeria.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
