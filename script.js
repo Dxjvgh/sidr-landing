@@ -65,7 +65,7 @@ document.getElementById("orderForm").addEventListener("submit", function(e) {
 `;
 
   const botToken = "8955038552:AAH5UrtfQtNtkxIoFx7OvfRK7K1FNxV44Mk";
-  const chatId = "5334151238";
+  const chatId = "-5334151238";
 
   fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
     method: "POST",
