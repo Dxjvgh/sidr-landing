@@ -1,37 +1,98 @@
+/* style.css */
 body {
-  font-family: Arial;
-  margin: 0;
-  background: #f3f0e8;
-  color: #1f3d2b;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f3f0e8;
+    color: #1f3d2b;
+    direction: rtl;
 }
 
 .hero {
-  background: #1f3d2b;
-  color: #f3f0e8;
-  text-align: center;
-  padding: 60px 20px;
+    background: #1f3d2b;
+    color: #f3f0e8;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    background: #e8b84b;
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    border-radius: 40px;
+    color: #1f3d2b;
+    margin-top: 1rem;
 }
 
 .form-section {
-  padding: 30px;
-  max-width: 500px;
-  margin: auto;
+    padding: 30px 20px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.form-section h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
 }
 
 input, select {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
 }
 
 button {
-  width: 100%;
-  padding: 12px;
-  background: #1f3d2b;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
+    width: 100%;
+    padding: 14px;
+    background: #1f3d2b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #2b5a3e;
+}
+
+.price-summary {
+    background: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.price-row--total {
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-bottom: none;
+    border-top: 2px solid #1f3d2b;
+    padding-top: 12px;
+    margin-top: 5px;
+}
+
+.price-row--total span:last-child {
+    color: #1f3d2b;
+    font-size: 1.4rem;
 }
