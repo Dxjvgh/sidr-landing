@@ -1,60 +1,49 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بودرة السدر 🌿</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>بودرة السدر</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <section class="hero">
-        <h1>بودرة السدر 🌿</h1>
-        <p>منتج طبيعي للعناية بالشعر والبشرة</p>
-        <h2 id="productPriceDisplay">2300 دج</h2>
-    </section>
+  <section class="hero">
+    <h1>بودرة السدر 🌿</h1>
+    <p>منتج طبيعي للعناية بالشعر والبشرة</p>
+    <h2 id="priceDisplay">2300 دج</h2>
+  </section>
 
-    <section class="form-section">
-        <h3>اطلبي الآن</h3>
-        <form id="orderForm">
-            <input type="text" id="name" placeholder="الاسم" required>
-            <input type="text" id="lastname" placeholder="اللقب" required>
-            <input type="text" id="phone" placeholder="رقم الهاتف" required>
-            
-            <select id="wilaya" required>
-                <option value="">اختر الولاية</option>
-            </select>
+  <section class="form-section">
 
-            <select id="commune" required>
-                <option value="">اختر البلدية</option>
-            </select>
+    <h3>اطلبي الآن</h3>
 
-            <select id="delivery" required>
-                <option value="home">توصيل إلى المنزل</option>
-                <option value="point">نقطة تسليم</option>
-            </select>
+    <form id="orderForm">
 
-            <!-- عرض تفاصيل الأسعار -->
-            <div class="price-summary" id="priceSummary">
-                <div class="price-row">
-                    <span>سعر المنتج</span>
-                    <span id="summaryProduct">2300 دج</span>
-                </div>
-                <div class="price-row">
-                    <span>تكلفة التوصيل</span>
-                    <span id="summaryDelivery">0 دج</span>
-                </div>
-                <div class="price-row price-row--total">
-                    <span>المجموع</span>
-                    <span id="summaryTotal">2300 دج</span>
-                </div>
-            </div>
+      <input type="text" id="name" placeholder="الاسم" required>
+      <input type="text" id="lastname" placeholder="اللقب" required>
+      <input type="text" id="phone" placeholder="رقم الهاتف" required>
+      <select id="wilaya" onchange="updateCommuneAndPrice()" required>
+        <option value="">اختر الولاية</option>
+      </select>
 
-            <button type="submit">احصلي عليه الآن</button>
-        </form>
-    </section>
+      <select id="commune" required>
+        <option value="">اختر البلدية</option>
+      </select>
 
-    <script src="algeria.js"></script>
-    <script src="script.js"></script>
+      <select id="delivery" onchange="updatePrice()">
+        <option value="نقطة تسليم">نقطة تسليم</option>
+        <option value="توصيل إلى المنزل">توصيل إلى المنزل</option>
+      </select>
+
+      <button type="submit">احصلي عليه الآن</button>
+
+    </form>
+
+  </section>
+
+  <script src="algeria.js"></script>
+  <script src="prices.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
