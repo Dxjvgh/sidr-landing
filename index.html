@@ -11,7 +11,7 @@
   <section class="hero">
     <h1>بودرة السدر 🌿</h1>
     <p>منتج طبيعي للعناية بالشعر والبشرة</p>
-    <h2 id="priceDisplay">2300 دج</h2>
+    <h2>2300 دج</h2>
   </section>
 
   <section class="form-section">
@@ -23,18 +23,21 @@
       <input type="text" id="name" placeholder="الاسم" required>
       <input type="text" id="lastname" placeholder="اللقب" required>
       <input type="text" id="phone" placeholder="رقم الهاتف" required>
-      <select id="wilaya" onchange="updateCommuneAndPrice()" required>
+
+      <select id="wilaya" onchange="updateCommunes(); updatePrice();" required>
         <option value="">اختر الولاية</option>
       </select>
 
-      <select id="commune" required>
+      <select id="commune" onchange="updatePrice()" required>
         <option value="">اختر البلدية</option>
       </select>
 
       <select id="delivery" onchange="updatePrice()">
-        <option value="نقطة تسليم">نقطة تسليم</option>
-        <option value="توصيل إلى المنزل">توصيل إلى المنزل</option>
+        <option value="home">توصيل إلى المنزل</option>
+        <option value="desk">نقطة تسليم</option>
       </select>
+
+      <div id="priceBox" style="margin:10px 0;font-weight:bold;"></div>
 
       <button type="submit">احصلي عليه الآن</button>
 
@@ -42,8 +45,7 @@
 
   </section>
 
-  <script src="algeria.js"></script>
-  <script src="prices.js"></script>
-  <script src="script.js"></script>
+<script src="algeria.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

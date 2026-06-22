@@ -24,7 +24,6 @@ input, select {
   margin: 8px 0;
   border: 1px solid #ccc;
   border-radius: 8px;
-  box-sizing: border-box;
 }
 
 button {
@@ -35,14 +34,4 @@ button {
   border: none;
   cursor: pointer;
   margin-top: 10px;
-  border-radius: 8px;
-  font-size: 16px;
-}
-
-button:hover {
-  background: #2d5a3e;
-}
-
-#priceDisplay {
-  transition: all 0.3s ease;
 }
