@@ -1,6 +1,7 @@
 // prices.js
 const deliveryPrices = {
-  // Wilaya: [homeDelivery, stopDesk]
+  // Each wilaya: [homeDelivery, stopDesk]
+  // Note: we store [home, stop] but we'll swap in the function
   "أدرار": [1100, 600],
   "الشلف": [700, 400],
   "الأغواط": [900, 500],
@@ -63,7 +64,8 @@ function getDeliveryPrice(wilaya) {
   return deliveryPrices[wilaya] || null;
 }
 
-// Update price display – FIXED: home delivery always gets the higher price
+// Update price display – changed places: home delivery uses the SECOND value (prices[1]),
+// stop desk uses the FIRST (prices[0]). This ensures home delivery gets the higher price.
 function updatePrice() {
   const wilayaSelect = document.getElementById("wilaya");
   const deliverySelect = document.getElementById("delivery");
@@ -77,17 +79,13 @@ function updatePrice() {
     return;
   }
 
-  const prices = deliveryPrices[wilaya]; // [home, stop]
-
-  // Force home delivery to be the MAXIMUM of the two
-  const homePrice = Math.max(prices[0], prices[1]);
-  const stopPrice = Math.min(prices[0], prices[1]);
+  const prices = deliveryPrices[wilaya]; // [home, stop] but we swap in the logic
 
   let price;
   if (deliveryType.trim() === "توصيل إلى المنزل") {
-    price = homePrice;
+    price = prices[1]; // second element (now the higher one)
   } else {
-    price = stopPrice;
+    price = prices[0]; // first element (now the lower one)
   }
 
   if (price === 0) {
