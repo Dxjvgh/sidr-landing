@@ -77,7 +77,11 @@ function updatePrice() {
   }
 
   const prices = deliveryPrices[wilaya];
-  let price = delivery === "توصيل إلى المنزل" ? prices[1] : prices[0];
+  // Fix: home delivery always gets the higher price
+  const homePrice = Math.max(prices[0], prices[1]);
+  const stopPrice = Math.min(prices[0], prices[1]);
+
+  let price = delivery === "توصيل إلى المنزل" ? homePrice : stopPrice;
   
   if (price === 0) {
     priceDisplay.textContent = "غير متاح";
