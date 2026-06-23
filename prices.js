@@ -58,31 +58,38 @@ const deliveryPrices = {
   "المنيعة": [1000, 500]
 };
 
-// Get delivery price for a wilaya
-function getDeliveryPrice(wilaya, deliveryType) {
-  const prices = deliveryPrices[wilaya];
-  if (!prices) return [null, null];
-  return prices;
+// Helper: get prices array for a wilaya
+function getDeliveryPrice(wilaya) {
+  return deliveryPrices[wilaya] || null;
 }
 
-// Update price display
+// Update price display – FIXED: home delivery always gets the higher price
 function updatePrice() {
-  const wilaya = document.getElementById("wilaya").value;
-  const delivery = document.getElementById("delivery").value;
+  const wilayaSelect = document.getElementById("wilaya");
+  const deliverySelect = document.getElementById("delivery");
   const priceDisplay = document.getElementById("priceDisplay");
 
+  const wilaya = wilayaSelect ? wilayaSelect.value : "";
+  const deliveryType = deliverySelect ? deliverySelect.value : "";
+
   if (!wilaya || !deliveryPrices[wilaya]) {
-    priceDisplay.textContent = "2300 دج";
+    if (priceDisplay) priceDisplay.textContent = "2300 دج";
     return;
   }
 
-  const prices = deliveryPrices[wilaya];
-  // Fix: home delivery always gets the higher price
+  const prices = deliveryPrices[wilaya]; // [home, stop]
+
+  // Force home delivery to be the MAXIMUM of the two
   const homePrice = Math.max(prices[0], prices[1]);
   const stopPrice = Math.min(prices[0], prices[1]);
 
-  let price = delivery === "توصيل إلى المنزل" ? homePrice : stopPrice;
-  
+  let price;
+  if (deliveryType.trim() === "توصيل إلى المنزل") {
+    price = homePrice;
+  } else {
+    price = stopPrice;
+  }
+
   if (price === 0) {
     priceDisplay.textContent = "غير متاح";
   } else {
